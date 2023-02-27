@@ -1,24 +1,14 @@
-// const ProductReducer = function (state = 0, action: any) {
-//   switch (action.type) {
-//     case "INCREMENT":
-//       return state + 1;
-//     case "DECREMENT":
-//       return state - 1;
-//     default:
-//       return state;
-//   }
-// };
+import { ProductType } from "../../types/types";
+import { addDataType } from "../actions/addData";
 
 const initialState = {
-  data: [],
+  product: {} as ProductType,
 };
 
-export const ProductReducer = (state: any = initialState, action: any) => {
+export const ProductReducer = (state = initialState, action: addDataType) => {
   switch (action.type) {
-    case "INCREMENT":
-      return state;
-    case "DECREMENT":
-      return state;
+    case "ADD_DATA":
+      return { ...state, product: { ...action.payload } };
     default:
       return state;
   }

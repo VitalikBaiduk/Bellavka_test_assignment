@@ -4,7 +4,7 @@ import { API_URL } from "../../consts";
 import { addData } from "../actions/addData";
 
 export const getProductData = () => async (dispatch: Dispatch) => {
-  const url = `${API_URL}/products/94756956?include=category`;
+  const url = `${API_URL}/products/94756956?include=category,colors,fabrics,heights,kits,sizes,photos,videos,otherColors,recommended`;
   try {
     const { data } = await axios.get(url, {
       data: {},
@@ -14,7 +14,6 @@ export const getProductData = () => async (dispatch: Dispatch) => {
       },
     });
     dispatch(addData(data));
-    // console.log(data);
   } catch (e) {
     // if (e instanceof AxiosError) {
     //   const { error } = e.response
