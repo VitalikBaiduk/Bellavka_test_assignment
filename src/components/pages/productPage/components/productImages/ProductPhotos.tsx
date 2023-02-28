@@ -3,13 +3,14 @@ import {
   ProductVideosType,
 } from "../../../../../types/types";
 import "slick-carousel/slick/slick.css";
-import { ReactComponent as ArrowUpOrDown } from "../../../../../assets/ArrowUp.svg";
+import { ReactComponent as ArrowUpOrDown } from "../../../../../assets/arrowUp.svg";
 import { useEffect, useRef, useState } from "react";
 import {
   ActiveItem,
   ActiveItemBottomLabel,
   ActiveItemTopLabel,
   ActiveVideo,
+  InteractiveBlock,
   SmallItem,
   SmallVideoWrapper,
   StyledButton,
@@ -20,6 +21,9 @@ import {
 } from "./styles";
 import { StyledText } from "../../../../../styles/globalStyles";
 import { theme } from "../../../../../styles/theme";
+import { ReactComponent as Like } from "../../../../../assets/like.svg";
+import { ReactComponent as Share } from "../../../../../assets/union.svg";
+import { ReactComponent as Download } from "../../../../../assets/download-four.svg";
 
 type ProductPhotosProps = {
   photos: ProductPhotosType[];
@@ -28,7 +32,7 @@ type ProductPhotosProps = {
   promocode: string;
 };
 
-export const ProductPhotos = ({
+export const ProductPhoto = ({
   photos,
   videos,
   alt,
@@ -49,7 +53,6 @@ export const ProductPhotos = ({
     slidesToShow: 4,
     slidesToScroll: 1,
     vertical: true,
-    verticalSwiping: true,
     afterChange: (currentSlide: any) => {
       setActiveItem(currentSlide);
     },
@@ -101,6 +104,11 @@ export const ProductPhotos = ({
             {promocode}
           </StyledText>
         </ActiveItemBottomLabel>
+        <InteractiveBlock>
+          <Like />
+          <Share />
+          <Download />
+        </InteractiveBlock>
       </WrapperActiveItem>
     </Wrapper>
   );

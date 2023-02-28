@@ -62,7 +62,7 @@ export type ProductPromocodeType = {
   unlimited: boolean;
 };
 
-export type ProductCommomnType = {
+export type ProductCommonType = {
   id: number;
   value: string;
 };
@@ -80,7 +80,7 @@ export type ProductPhotosType = {
 
 export type ProductSizeType = {
   id: number;
-  isActual: false;
+  isActual: boolean;
   value: string;
 };
 
@@ -102,9 +102,9 @@ export type ProductDataType = {
   date: ProductDateType;
   description: string | null;
   fabricText: string;
-  fabrics: ProductCommomnType[];
+  fabrics: ProductCommonType[];
   fullName: string;
-  heights: ProductCommomnType[];
+  heights: ProductCommonType[];
   id: number;
   inFavorite: boolean;
   isActive: boolean;
@@ -114,7 +114,7 @@ export type ProductDataType = {
   isLinen: boolean;
   isNew: boolean;
   isOutlet: boolean;
-  kits: ProductCommomnType[];
+  kits: ProductCommonType[];
   name: string;
   otherColors: ProductColorsType[];
   photos: ProductPhotosType[];
@@ -135,4 +135,12 @@ export type ProductDataType = {
 export type ProductType = {
   data: ProductDataType;
   message: string;
+};
+
+export type ActiveItemsType = {
+  id: number;
+  items: {
+    activeSize: number[];
+    activeHeigth: number | null;
+  };
 };

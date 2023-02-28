@@ -3,6 +3,7 @@ import { ReactComponent as BackArrow } from "../../../assets/backButtonArrow.svg
 import { StyledText } from "../../../styles/globalStyles";
 
 export const BackButtonWrapper = styled.a`
+  position: absolute;
   display: flex;
   align-items: center;
   cursor: pointer;
