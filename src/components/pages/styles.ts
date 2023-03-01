@@ -3,7 +3,7 @@ import { StyledText } from "../../styles/globalStyles";
 
 export const ExtraWrapper = styled.div`
   width: 100%;
-  padding: 40px 30px 0;
+  padding: 40px 30px 70px 30px;
 `;
 
 export const HeaderBlock = styled.div`

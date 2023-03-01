@@ -94,6 +94,45 @@ export type ProductVideosType = {
   sd: string;
 };
 
+export type ProductType = {
+  data: ProductDataType;
+  message: string;
+};
+
+export type ActiveItemsType = {
+  id: number;
+  items: {
+    activeSize: number[];
+    activeHeigth: number | null;
+  };
+};
+
+export type ModalInfoType = {
+  modalType: ModalType;
+  contentType: SizeType;
+  contentTitle: string;
+  modalTitle: string;
+};
+
+export type ShipmentData = {
+  fittingPrice: string;
+  courierPrice: string;
+  postPrice: string;
+  symbol: string;
+};
+
+export type AboutTheProductType = {
+  countryofOrigin: string;
+  equipment: string[];
+  season: string[];
+  collection: string[];
+  style: string[];
+  material: string[];
+  composition: string;
+  height: string[];
+  description: string;
+};
+
 export type ProductDataType = {
   availabilityStatus: null;
   brand: ProductBransType;
@@ -132,24 +171,6 @@ export type ProductDataType = {
   url: string;
   videos: ProductVideosType[];
   recommended: ProductDataType[];
-};
-
-export type ProductType = {
-  data: ProductDataType;
-  message: string;
-};
-
-export type ActiveItemsType = {
-  id: number;
-  items: {
-    activeSize: number[];
-    activeHeigth: number | null;
-  };
-};
-
-export type ModalInfoType = {
-  modalType: ModalType;
-  contentType: SizeType;
-  contentTitle: string;
-  modalTitle: string;
+  aboutTheProductData: AboutTheProductType;
+  shipmentData: ShipmentData;
 };

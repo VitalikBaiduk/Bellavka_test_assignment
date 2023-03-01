@@ -9,11 +9,13 @@ export const StyledText = styled.span<{
   border?: boolean;
   borderColor?: string;
   cursor?: string;
+  lineHeight?: string;
 }>`
   text-transform: ${({ textTransform }) => (textTransform ? "uppercase" : "")};
   color: ${({ color }) => (color ? color : "#282828")};
   font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : "500")};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "16px")};
+  line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "")};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "")};
   border-bottom: ${({ border }) => (border ? "1px solid" : "")};
   border-color: ${({ borderColor }) => (borderColor ? borderColor : "")};

@@ -21,6 +21,9 @@ import {
 import { Modal } from "../../modal/Modal";
 import { ModalType, SizeType } from "../../../enums/enums";
 import { BuyingProcess } from "./components/buyingProcess/BuyingProcess";
+import { Shipment } from "./components/shipment/Shipment";
+import { OtherColors } from "./components/otherColors/OtherColors";
+import { AboutTheProduct } from "./components/aboutTheProduct/AboutTheProduct";
 
 export const ProductPage = () => {
   const [toggle, setToggle] = useState(false);
@@ -41,9 +44,9 @@ export const ProductPage = () => {
     heights,
     sizes,
     id,
+    aboutTheProductData,
+    shipmentData,
   } = data ? data : ({} as ProductDataType);
-
-  console.log(data);
 
   useEffect(() => {
     dispatch(getProductData());
@@ -108,6 +111,9 @@ export const ProductPage = () => {
                 id={id}
                 sizeData={[sizes, heights]}
               />
+              <Shipment city={"Москва"} data={shipmentData} />
+              <OtherColors />
+              <AboutTheProduct data={aboutTheProductData} />
             </MainInfoWrapper>
           </GlobalWrapper>
         </ExtraWrapper>
