@@ -17,12 +17,6 @@ type SizeInfoProps = {
 };
 
 export const SizeInfo = ({ sizeData, id }: SizeInfoProps) => {
-  const dispatch = useTypedDispatch();
-  const { activeItems, product } = useTypedSelector(
-    (state: ReduxState) => state.product
-  );
-  const { data } = product;
-
   const [sizes, heights] = sizeData;
 
   return (

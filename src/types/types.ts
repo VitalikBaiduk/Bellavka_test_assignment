@@ -1,3 +1,5 @@
+import { ModalType, SizeType } from "../enums/enums";
+
 export type ProductBransType = {
   id: number;
   slug: string;
@@ -143,4 +145,11 @@ export type ActiveItemsType = {
     activeSize: number[];
     activeHeigth: number | null;
   };
+};
+
+export type ModalInfoType = {
+  modalType: ModalType;
+  contentType: SizeType;
+  contentTitle: string;
+  modalTitle: string;
 };

@@ -43,48 +43,41 @@ export const ProductPage = () => {
     id,
   } = data ? data : ({} as ProductDataType);
 
-  const modalType = () => {
-    if (activeItems.items.activeHeigth === null) {
-      return ModalType.HEIGTH;
-    } else if (activeItems.items.activeSize.length === 0) {
-      return ModalType.SIZES;
-    } else {
-      return;
-    }
-  };
-
-  const sizeType = () => {
-    if (activeItems.items.activeHeigth === null) {
-      return SizeType.HEIGTH;
-    } else if (activeItems.items.activeSize.length === 0) {
-      return SizeType.SIZE;
-    } else {
-      return;
-    }
-  };
+  console.log(data);
 
   useEffect(() => {
     dispatch(getProductData());
   }, []);
 
+  const modalInfo = {
+    modalType: ModalType.SIZES,
+    modalTitle:
+      activeItems.items.activeSize.length === 0
+        ? "выберите размер"
+        : activeItems.items.activeHeigth === null
+        ? "выберите рост"
+        : "",
+    contentTitle:
+      activeItems.items.activeSize.length === 0
+        ? "Какой у вас размер?"
+        : activeItems.items.activeHeigth === null
+        ? "Какой у вас рост?"
+        : "",
+    contentType:
+      activeItems.items.activeSize.length === 0
+        ? SizeType.SIZE
+        : activeItems.items.activeHeigth === null
+        ? SizeType.HEIGTH
+        : ("" as SizeType),
+  };
+
   return (
     <>
       {isActiveModal && (
         <Modal
-          sizeTitle={
-            modalType() && modalType() === ModalType.HEIGTH
-              ? "Какой у вас рост?"
-              : "Какой у вас размер?"
-          }
           id={id}
-          type={modalType()}
-          title={
-            modalType() && modalType() === ModalType.HEIGTH
-              ? "выберите рост"
-              : "выберите размер"
-          }
-          sizeType={sizeType()}
           setIsActiveModal={setIsActiveModal}
+          modalInfo={modalInfo}
         />
       )}
       {data ? (

@@ -11,7 +11,6 @@ export enum SizeType {
 
 export enum ModalType {
   SIZES = "SIZES",
-  HEIGTH = "HEIGTH",
 }
 
 export enum CommonButtonType {

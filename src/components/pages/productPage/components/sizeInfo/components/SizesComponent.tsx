@@ -11,7 +11,7 @@ import {
   ProductSizeType,
 } from "../../../../../../types/types";
 import { SizeType } from "../../../../../../enums/enums";
-import { Sizes, SizesWrapper, Wrapper } from "./styles";
+import { Sizes, SizesWrapper, StyledRemind, Wrapper } from "./styles";
 import { useEffect, useState } from "react";
 
 type SizesProps = {
@@ -123,6 +123,10 @@ export const SizesComponent = ({
   const setActiveItemFunc =
     type === SizeType.SIZE ? addItemToActiveSizeArr : addActiveHeights;
 
+  const onClick = (isActual: boolean, id: number) => {
+    (isActual || type === SizeType.HEIGTH) && setActiveItemFunc(id);
+  };
+
   useEffect(() => {
     setActiveSizeItemsForModal &&
       setActiveSizeItemsForModal([localActiveHeigth, localActiveSize]);
@@ -132,16 +136,17 @@ export const SizesComponent = ({
     <Wrapper>
       {title && <StyledText>{title}</StyledText>}
       <SizesWrapper>
-        {sizeData.map((item: ProductCommonType) => (
+        {sizeData.map((item: any) => (
           <Sizes
             borderColor={isActive(item.id) ? theme.gold : theme.gray}
-            onClick={() => setActiveItemFunc(item.id)}
+            onClick={() => onClick(item.isActual, item.id)}
             key={item.id}
             isActive={isActive(item.id)}
           >
             <StyledText color={isActive(item.id) ? theme.white : ""}>
               {item.value}
             </StyledText>
+            {!item.isActual && type === SizeType.SIZE && <StyledRemind />}
           </Sizes>
         ))}
       </SizesWrapper>
