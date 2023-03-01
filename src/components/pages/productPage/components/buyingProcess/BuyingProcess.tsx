@@ -6,6 +6,7 @@ import { ReactComponent as Cart } from "../../../../../assets/blackCart.svg";
 import { ReactComponent as Hand } from "../../../../../assets/hand.svg";
 import { ButtonsWrapper, Wrapper } from "./styles";
 import { ReduxState, useTypedSelector } from "../../../../../state/store";
+import { useWindowSize } from "../../../../../hooks/useWindowSize";
 
 type BuyingProcessProps = {
   id: number;
@@ -18,6 +19,8 @@ export const BuyingProcess = ({
   sizeData,
   setIsActiveModal,
 }: BuyingProcessProps) => {
+  const windowWidth = useWindowSize()[0];
+  const phone = windowWidth <= 1050;
   const { activeItems } = useTypedSelector(
     (state: ReduxState) => state.product
   );
@@ -44,7 +47,7 @@ export const BuyingProcess = ({
           onClick={onClick}
           Icon={Hand}
           text={"купить в 1 клик"}
-          margin={"0 0 0 21px"}
+          margin={phone ? "0 0 15px 0" : "0 0 0 20px"}
         ></CommonButton>
       </ButtonsWrapper>
     </Wrapper>

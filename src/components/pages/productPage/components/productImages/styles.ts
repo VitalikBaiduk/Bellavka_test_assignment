@@ -3,13 +3,11 @@ import styled from "styled-components";
 import { ReactComponent as Player } from "../../../../../assets/videoPlayer.svg";
 
 export const Wrapper = styled.div`
-  width: 100%;
-  max-width: 570px;
+  width: 570px;
   max-height: 675px;
   display: flex;
   & > div:first-child {
-    width: 100%;
-    max-width: 100px;
+    width: 100px;
     position: relative;
     top: -21px;
   }

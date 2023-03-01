@@ -2,8 +2,10 @@ import { StyledText } from "../../../../../styles/globalStyles";
 import { ReactComponent as HideDataIcon } from "../../../../../assets/circle-double-down.svg";
 import { theme } from "../../../../../styles/theme";
 import { AboutTheProductType } from "../../../../../types/types";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { TitleBlock, Wrapper } from "./styles";
+import { useWindowSize } from "../../../../../hooks/useWindowSize";
+import { MoreInfoButton } from "../../../../moreInfoButton/MoreInfoButton";
 
 type AboutTheProductProps = {
   data: AboutTheProductType;
@@ -23,6 +25,8 @@ export const AboutTheProduct = ({ data }: AboutTheProductProps) => {
   } = data;
 
   const [isShowInfo, setIsShowInfo] = useState(true);
+  const windowWidth = useWindowSize()[0];
+  const phone = windowWidth <= 1050;
 
   const productdata = [
     {
@@ -69,16 +73,22 @@ export const AboutTheProduct = ({ data }: AboutTheProductProps) => {
     <Wrapper isShowInfo={isShowInfo}>
       <TitleBlock onClick={() => setIsShowInfo(!isShowInfo)}>
         <StyledText margin="0 5px 0 0">О товаре</StyledText>
-        <HideDataIcon />
+        {phone ? (
+          <MoreInfoButton isShowMoreInfo={isShowInfo} onClick={setIsShowInfo} />
+        ) : (
+          <HideDataIcon />
+        )}
       </TitleBlock>
-      {productdata.map((item: { label: string; value: string }) => {
-        return (
-          <StyledText margin="8px 0 0" color={theme.gray}>
-            {item.label}
-            <StyledText lineHeight="150%">{item.value}</StyledText>
-          </StyledText>
-        );
-      })}
+      {productdata.map(
+        (item: { label: string; value: string }, index: number) => {
+          return (
+            <StyledText key={index} margin="8px 0 0" color={theme.gray}>
+              {item.label}
+              <StyledText lineHeight="150%">{item.value}</StyledText>
+            </StyledText>
+          );
+        }
+      )}
     </Wrapper>
   );
 };

@@ -25,7 +25,7 @@ import { ReactComponent as Like } from "../../../../../assets/like.svg";
 import { ReactComponent as Share } from "../../../../../assets/union.svg";
 import { ReactComponent as Download } from "../../../../../assets/download-four.svg";
 
-type ProductPhotosProps = {
+export type ProductPhotosProps = {
   photos: ProductPhotosType[];
   videos: ProductVideosType[];
   alt: string;
@@ -48,7 +48,7 @@ export const ProductPhoto = ({
     if (sliderRef.current?.slickGoTo) sliderRef.current.slickGoTo(activeItem);
   });
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -73,12 +73,13 @@ export const ProductPhoto = ({
       <StyledSlider {...settings} ref={sliderRef}>
         {displayedData.map((item: any, index: number) =>
           item === displayedData[displayedData.length - 1] ? (
-            <SmallVideoWrapper onClick={() => setActiveItem(index)}>
+            <SmallVideoWrapper key={index} onClick={() => setActiveItem(index)}>
               <SmallItem src={item.preview} alt={alt} />
               <StyledPlayeIcon />
             </SmallVideoWrapper>
           ) : (
             <SmallItem
+              key={index}
               onClick={() => setActiveItem(index)}
               src={item.original}
               alt={alt}

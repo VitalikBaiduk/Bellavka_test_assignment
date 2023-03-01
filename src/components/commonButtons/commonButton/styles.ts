@@ -21,6 +21,9 @@ export const Wrapper = styled.div<WrapperProps>`
   margin: ${({ margin }) => (margin ? margin : "0")};
   padding: 15px 0;
   cursor: pointer;
+  @media (max-width: 1050px) {
+    max-width: 100%;
+  }
 `;
 
 export const WrapperInner = styled.div`

@@ -3,40 +3,34 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  @media (max-width: 1050px) {
+    margin-top: 20px;
+  }
+`;
+
+export const WrapperInner = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
 export const WrapperBuyInfo = styled.div`
-  width: 100%;
-  max-width: 375px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  @media (max-width: 1050px) {
+    align-items: flex-start;
+    flex-direction: column;
+    & > span:nth-child(2) {
+      display: none;
+    }
+  }
 `;
 
 export const CartInfoWrapper = styled.div`
   display: flex;
-`;
-
-export const WrapperReviews = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 15px;
-`;
-
-export const ReviewsButton = styled.a<{ borderColor: string }>`
-  display: flex;
-  flex: 20px;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 4px;
-  border-color: ${({ borderColor }) => borderColor};
-  padding: 15px 5px;
-  cursor: pointer;
-  &:first-child {
-    margin-right: 20px;
-  }
 `;
 
 export const WrapperPriceOptions = styled.div`
@@ -47,6 +41,17 @@ export const WrapperPriceOptions = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 10px;
+  @media (max-width: 1050px) {
+    display: none;
+  }
+`;
+
+export const WrapperReviews = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 15px;
 `;
 
 export const Slider = styled.span<{ toggle: boolean; color: string }>`
@@ -66,8 +71,8 @@ export const Slider = styled.span<{ toggle: boolean; color: string }>`
     position: absolute;
     left: 1px;
     bottom: 0.5px;
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
     border-radius: 100%;
     background-color: ${({ toggle, color }) => (toggle ? "white" : color)};
     transition: 0.4s;
@@ -77,8 +82,8 @@ export const Slider = styled.span<{ toggle: boolean; color: string }>`
 export const Switch = styled.label`
   position: relative;
   display: inline-block;
-  width: 25px;
-  height: 15px;
+  width: 22px;
+  height: 13px;
   background-color: white;
   border-radius: 15px;
   & > input {
@@ -87,7 +92,6 @@ export const Switch = styled.label`
 `;
 export const Input = styled.input`
   &:checked + ${Slider}:before {
-    transform: translateX(10px);
+    transform: translateX(7px);
   }
 `;
-export const ProdReview = styled.div``;

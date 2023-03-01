@@ -1,9 +1,3 @@
-import { addActiveProductItems } from "../../../../../state/actions/addActiveProductItems";
-import {
-  ReduxState,
-  useTypedDispatch,
-  useTypedSelector,
-} from "../../../../../state/store";
 import { StyledText } from "../../../../../styles/globalStyles";
 import { theme } from "../../../../../styles/theme";
 import { ProductCommonType, ProductSizeType } from "../../../../../types/types";

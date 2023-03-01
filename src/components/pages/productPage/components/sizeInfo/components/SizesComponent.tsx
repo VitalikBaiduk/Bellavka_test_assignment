@@ -73,27 +73,31 @@ export const SizesComponent = ({
           )
         : setLocalActiveSize([...localActiveSize, currentItemId]);
     } else {
-      foundElement && id === data.id
-        ? dispatch(
-            addActiveProductItems({
-              id: data.id,
-              items: {
-                activeSize: activeItems.items.activeSize.filter(
-                  (elem: number) => elem !== currentItemId
-                ),
-                activeHeigth: activeItems.items.activeHeigth,
-              },
-            })
-          )
-        : dispatch(
-            addActiveProductItems({
-              id: data.id,
-              items: {
-                activeSize: [...activeItems.items.activeSize, currentItemId],
-                activeHeigth: activeItems.items.activeHeigth,
-              },
-            })
-          );
+      if (foundElement && id === data.id) {
+        dispatch(
+          addActiveProductItems({
+            id: data.id,
+            items: {
+              activeSize: activeItems.items.activeSize.filter(
+                (elem: number) => elem !== currentItemId
+              ),
+              activeHeigth: activeItems.items.activeHeigth,
+            },
+          })
+        );
+      } else if (!foundElement && id === data.id) {
+        dispatch(
+          addActiveProductItems({
+            id: data.id,
+            items: {
+              activeSize: [...activeItems.items.activeSize, currentItemId],
+              activeHeigth: activeItems.items.activeHeigth,
+            },
+          })
+        );
+      } else {
+        return;
+      }
     }
   };
 

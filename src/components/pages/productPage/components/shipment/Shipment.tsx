@@ -20,13 +20,15 @@ export const Shipment = ({ city, data }: ShipmentProps) => {
   return (
     <Wrapper>
       <StyledText fontWeight="600">Доставка: {city}</StyledText>
-      {shipmentData.map((item: { label: string; value: string }) => {
-        return (
-          <StyledText margin="5px 0 0" fontWeight="400">
-            {item.label + item.value + symbol}
-          </StyledText>
-        );
-      })}
+      {shipmentData.map(
+        (item: { label: string; value: string }, index: number) => {
+          return (
+            <StyledText key={index} margin="5px 0 0" fontWeight="400">
+              {item.label + item.value + symbol}
+            </StyledText>
+          );
+        }
+      )}
       <ChangeButton cursor="pointer" border color={theme.gold}>
         Изменить
       </ChangeButton>

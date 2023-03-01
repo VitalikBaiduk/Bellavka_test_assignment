@@ -18,4 +18,7 @@ export const TitleBlock = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  @media (max-width: 1050px) {
+    justify-content: space-between;
+  }
 `;

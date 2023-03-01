@@ -2,7 +2,7 @@ import { StyledText } from "../../../../../styles/globalStyles";
 import { ImagesBlock, StyledImg, Wrapper } from "./styles";
 
 type OtherColorsProps = {
-  data?: string[];
+  data: string[];
 };
 
 export const OtherColors = ({ data }: OtherColorsProps) => {
@@ -10,19 +10,9 @@ export const OtherColors = ({ data }: OtherColorsProps) => {
     <Wrapper>
       <StyledText>Цвета:</StyledText>
       <ImagesBlock>
-        {data ? (
-          data.map((item) => {
-            return <></>; /* <StyledImg
-          src={item}
-          alt="other color"
-        /> */
-          })
-        ) : (
-          <>
-            <StyledImg />
-            <StyledImg />
-          </>
-        )}
+        {data.map((item, index: number) => {
+          return <StyledImg key={index} src={item} alt="other color" />;
+        })}
       </ImagesBlock>
     </Wrapper>
   );

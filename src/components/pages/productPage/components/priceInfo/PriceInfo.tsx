@@ -1,3 +1,4 @@
+import { useState } from "react";
 import moment from "moment";
 import { StyledText } from "../../../../../styles/globalStyles";
 import { theme } from "../../../../../styles/theme";
@@ -24,6 +25,8 @@ import {
   PromocodePercent,
   SecondOptioOfPrice,
 } from "./styles";
+import { useWindowSize } from "../../../../../hooks/useWindowSize";
+import { MoreInfoButton } from "../../../../moreInfoButton/MoreInfoButton";
 
 type PriceInfoProps = {
   promocode: ProductPromocodeType;
@@ -38,6 +41,10 @@ export const PriceInfo = ({
   prices,
   toggle,
 }: PriceInfoProps) => {
+  const windowWidth = useWindowSize()[0];
+  const phone = windowWidth <= 1050;
+  const [isShowMoreInfo, setIsShowMoreInfo] = useState(true);
+
   const priceHandler = (type: PriceType) => {
     const priceResult = {
       [PriceType.CURRENT]: toggle
@@ -58,9 +65,15 @@ export const PriceInfo = ({
     <>
       <PriceBlock>
         <PriceBlockHeader color={theme.black}>
-          <StyledText color={theme.white}>
+          <StyledText color={phone ? theme.black : theme.white}>
             {toggle ? "Розничная цена:" : "Оптовая цена:"}
           </StyledText>
+          {phone && (
+            <MoreInfoButton
+              isShowMoreInfo={isShowMoreInfo}
+              onClick={setIsShowMoreInfo}
+            />
+          )}
         </PriceBlockHeader>
         <PriceBlockItem>
           <Prices>
@@ -92,31 +105,33 @@ export const PriceInfo = ({
               </StyledText>
             </DiscountsDescriptionBlock>
           </Prices>
-          <PromocodeBlock backgroundColor={theme.gold1}>
-            <PromocodeDescr>
-              <MainPromocodeDescr>
-                <StyledText textTransform fontWeight="600">
-                  промокод {name}
-                </StyledText>
-                <StyledText fontWeight="400">
-                  {promocode.description}
-                </StyledText>
-              </MainPromocodeDescr>
+          {isShowMoreInfo && (
+            <PromocodeBlock backgroundColor={theme.gold1}>
+              <PromocodeDescr>
+                <MainPromocodeDescr>
+                  <StyledText textTransform fontWeight="600">
+                    промокод {name}
+                  </StyledText>
+                  <StyledText fontWeight="400">
+                    {promocode.description}
+                  </StyledText>
+                </MainPromocodeDescr>
 
-              <EndPromoBlock>
-                <ClockIcon />
-                <StyledText margin="0 0 0 5px">
-                  {moment(promocode.endedAt).format("M : d : hh : mm")}
+                <EndPromoBlock>
+                  <ClockIcon />
+                  <StyledText margin="0 0 0 5px">
+                    {moment(promocode.endedAt).format("M : d : hh : mm")}
+                  </StyledText>
+                </EndPromoBlock>
+              </PromocodeDescr>
+              <CustomBorder />
+              <PromocodePercent>
+                <StyledText fontSize="60px" fontWeight="800">
+                  {"-" + prices.discount.promocode.percent + "%"}
                 </StyledText>
-              </EndPromoBlock>
-            </PromocodeDescr>
-            <CustomBorder />
-            <PromocodePercent>
-              <StyledText fontSize="60px" fontWeight="800">
-                {"-" + prices.discount.promocode.percent + "%"}
-              </StyledText>
-            </PromocodePercent>
-          </PromocodeBlock>
+              </PromocodePercent>
+            </PromocodeBlock>
+          )}
         </PriceBlockItem>
       </PriceBlock>
       <SecondOptioOfPrice>

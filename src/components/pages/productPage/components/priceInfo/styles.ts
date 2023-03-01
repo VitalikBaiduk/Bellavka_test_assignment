@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledText } from "../../../../../styles/globalStyles";
+import { theme } from "../../../../../styles/theme";
 
 export const PriceBlock = styled.div`
   width: 100%;
@@ -7,15 +8,25 @@ export const PriceBlock = styled.div`
 `;
 
 export const PriceBlockHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
   background: ${({ color }) => color};
   border-radius: 6px 6px 0 6px;
   padding: 5px 15px;
+  @media (max-width: 1050px) {
+    background: ${() => theme.white};
+    padding: 0;
+  }
 `;
 
 export const PriceBlockItem = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  @media (max-width: 1050px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const CurrentPriceBlock = styled.div`
@@ -24,9 +35,15 @@ export const CurrentPriceBlock = styled.div`
 `;
 
 export const Prices = styled.div`
-  width: 100%;
+  width: 30%;
   max-width: 220px;
   padding: 10px 15px;
+  @media (max-width: 1295px) {
+    width: 100%;
+  }
+  @media (max-width: 1050px) {
+    padding: 0;
+  }
 `;
 
 export const OldPrice = styled(StyledText)`
@@ -37,7 +54,7 @@ export const OldPrice = styled(StyledText)`
     width: 100%;
     top: 8px;
     left: 0;
-    border-top: 1px solid black;
+    border-top: 1px solid;
     border-color: ${({ color }) => color};
   }
 `;
@@ -48,11 +65,16 @@ export const DiscountsDescriptionBlock = styled.div`
 `;
 
 export const PromocodeBlock = styled.div<{ backgroundColor: string }>`
-  width: 100%;
+  width: 70%;
   display: flex;
   justify-content: space-between;
   background-color: ${({ backgroundColor }) => backgroundColor};
   border-radius: 0 0 6px 6px;
+  @media (max-width: 1295px) {
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
 `;
 
 export const PromocodeDescr = styled.div`
@@ -84,4 +106,5 @@ export const PromocodePercent = styled.div`
 export const EndPromoBlock = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 10px;
 `;

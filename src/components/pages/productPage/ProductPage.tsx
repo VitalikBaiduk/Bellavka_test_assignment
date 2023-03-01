@@ -17,15 +17,33 @@ import {
   HeaderBlock,
   Title,
   MainInfoWrapper,
-} from "../styles";
+  GlobalWrapperInner,
+  RecommendationsWrapper,
+} from "./styles";
 import { Modal } from "../../modal/Modal";
 import { ModalType, SizeType } from "../../../enums/enums";
 import { BuyingProcess } from "./components/buyingProcess/BuyingProcess";
 import { Shipment } from "./components/shipment/Shipment";
 import { OtherColors } from "./components/otherColors/OtherColors";
 import { AboutTheProduct } from "./components/aboutTheProduct/AboutTheProduct";
+import { LinksToBrand } from "./components/linksToBrand/LinksToBrand";
+import { ReactComponent as BrandLogo } from "../../../assets/brandLogo.svg";
+import { Recommendations } from "./components/recommendations/Recommendations";
+import { useWindowSize } from "../../../hooks/useWindowSize";
+import { ProductPhotosForMobile } from "./components/productImages/mobile/ProductPhotosForMobile";
+import styled from "styled-components";
+import { StyledText } from "../../../styles/globalStyles";
+import { theme } from "../../../styles/theme";
+import { BrandInfo } from "./components/brandInfo/BrandInfo";
+
+export const MobileWrapper = styled.div`
+  width: 100%;
+  padding: 0 20px;
+`;
 
 export const ProductPage = () => {
+  const windowWidth = useWindowSize()[0];
+  const phone = windowWidth <= 1050;
   const [toggle, setToggle] = useState(false);
   const [isActiveModal, setIsActiveModal] = useState(false);
   const dispatch = useTypedDispatch();
@@ -46,11 +64,9 @@ export const ProductPage = () => {
     id,
     aboutTheProductData,
     shipmentData,
+    availabilityStatus,
+    recommended,
   } = data ? data : ({} as ProductDataType);
-
-  useEffect(() => {
-    dispatch(getProductData());
-  }, []);
 
   const modalInfo = {
     modalType: ModalType.SIZES,
@@ -73,6 +89,10 @@ export const ProductPage = () => {
         ? SizeType.HEIGTH
         : ("" as SizeType),
   };
+  console.log(data);
+  useEffect(() => {
+    dispatch(getProductData());
+  }, []);
 
   return (
     <>
@@ -85,36 +105,87 @@ export const ProductPage = () => {
       )}
       {data ? (
         <ExtraWrapper>
-          <HeaderBlock>
-            <BackButton />
-            <Title>
-              {fullName + " " + colors[0].value + ", " + category.value}
-            </Title>
-          </HeaderBlock>
+          {!phone && (
+            <HeaderBlock>
+              <BackButton />
+              <Title>
+                {fullName + " " + colors[0].value + ", " + category.value}
+              </Title>
+            </HeaderBlock>
+          )}
           <GlobalWrapper>
-            <ProductPhoto
-              photos={photos}
-              videos={videos}
-              alt={fullName}
-              promocode={promocode.name}
-            />
-            <MainInfoWrapper>
-              <ExtraInfo toggle={toggle} setToggle={setToggle} />
-              <PriceInfo
-                promocode={promocode}
-                name={promocode.name}
-                prices={price}
-                toggle={toggle}
-              />
-              <BuyingProcess
-                setIsActiveModal={setIsActiveModal}
-                id={id}
-                sizeData={[sizes, heights]}
-              />
-              <Shipment city={"Москва"} data={shipmentData} />
-              <OtherColors />
-              <AboutTheProduct data={aboutTheProductData} />
-            </MainInfoWrapper>
+            <GlobalWrapperInner>
+              {!phone ? (
+                <ProductPhoto
+                  photos={photos}
+                  videos={videos}
+                  alt={fullName}
+                  promocode={promocode.name}
+                />
+              ) : (
+                <ProductPhotosForMobile
+                  photos={photos}
+                  videos={videos}
+                  alt={fullName}
+                  promocode={promocode.name}
+                />
+              )}
+              {!phone && (
+                <RecommendationsWrapper>
+                  <LinksToBrand
+                    deliveryAvailability={availabilityStatus}
+                    Logo={BrandLogo}
+                    linksToBrand={""}
+                    linksToAll={""}
+                  />
+                  <Recommendations recommendations={recommended} />
+                </RecommendationsWrapper>
+              )}
+              {phone && (
+                <MobileWrapper>
+                  <ExtraInfo toggle={toggle} setToggle={setToggle} />
+                  <BrandInfo
+                    fullName={fullName}
+                    color={colors[0].value}
+                    category={category.value}
+                    Logo={BrandLogo}
+                  ></BrandInfo>
+                  <PriceInfo
+                    promocode={promocode}
+                    name={promocode.name}
+                    prices={price}
+                    toggle={toggle}
+                  />
+                  <BuyingProcess
+                    setIsActiveModal={setIsActiveModal}
+                    id={id}
+                    sizeData={[sizes, heights]}
+                  />
+                  <Shipment city={"Москва"} data={shipmentData} />
+                  <AboutTheProduct data={aboutTheProductData} />
+                  <Recommendations recommendations={recommended} />
+                </MobileWrapper>
+              )}
+            </GlobalWrapperInner>
+            {!phone && (
+              <MainInfoWrapper>
+                <ExtraInfo toggle={toggle} setToggle={setToggle} />
+                <PriceInfo
+                  promocode={promocode}
+                  name={promocode.name}
+                  prices={price}
+                  toggle={toggle}
+                />
+                <BuyingProcess
+                  setIsActiveModal={setIsActiveModal}
+                  id={id}
+                  sizeData={[sizes, heights]}
+                />
+                <Shipment city={"Москва"} data={shipmentData} />
+                <OtherColors data={[photos[0].original]} />
+                <AboutTheProduct data={aboutTheProductData} />
+              </MainInfoWrapper>
+            )}
           </GlobalWrapper>
         </ExtraWrapper>
       ) : (

@@ -17,3 +17,9 @@ export enum CommonButtonType {
   TO_CART = "TO_CART",
   BUY_IN_ONE_CLICK = "BUY_IN_ONE_CLICK",
 }
+
+export enum ResourceButtonType {
+  REVIEWS = "REVIEWS",
+  FEEDBACK = "FEEDBACK",
+  QUESTIONS = "QUESTIONS",
+}

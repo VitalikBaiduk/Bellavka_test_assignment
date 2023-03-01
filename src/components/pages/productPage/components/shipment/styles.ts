@@ -13,10 +13,19 @@ export const Wrapper = styled.div`
   border-color: ${() => theme.gray};
   padding: 10px 20px;
   margin-top: 20px;
+  @media (max-width: 1050px) {
+    max-width: 100%;
+    padding: 0;
+    border: none;
+    margin-top: 30px;
+  }
 `;
 
 export const ChangeButton = styled(StyledText)`
   position: absolute;
   top: 10px;
   right: 25px;
+  @media (max-width: 1050px) {
+    right: 0;
+  }
 `;

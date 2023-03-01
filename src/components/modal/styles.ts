@@ -16,6 +16,13 @@ export const ModalItem = styled.div`
   background-color: ${() => theme.white};
   border-radius: 6px;
   padding: 30px 120px 45px 60px;
+  @media (max-width: 1050px) {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-radius: 40px 40px 0 0;
+    padding: 30px 20px;
+  }
 `;
 
 export const SaveButton = styled.a`

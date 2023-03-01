@@ -8,4 +8,7 @@ export const Wrapper = styled.div`
 export const ButtonsWrapper = styled.div`
   display: flex;
   margin-top: 25px;
+  @media (max-width: 1050px) {
+    flex-direction: column-reverse;
+  }
 `;
