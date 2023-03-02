@@ -4,6 +4,7 @@ import {
 } from "../../../../../types/types";
 import "slick-carousel/slick/slick.css";
 import { ReactComponent as ArrowUpOrDown } from "../../../../../assets/arrowUp.svg";
+
 import { useEffect, useRef, useState } from "react";
 import {
   ActiveItem,
