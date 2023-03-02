@@ -75,7 +75,7 @@ export const ActiveVideo = styled.video`
 export const WrapperActiveItem = styled.div`
   position: relative;
   width: 100%;
-  max-width: 445px;
+  max-width: 450px;
   display: flex;
   margin-left: 20px;
 `;

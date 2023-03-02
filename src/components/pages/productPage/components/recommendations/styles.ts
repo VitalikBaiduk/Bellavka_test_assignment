@@ -24,13 +24,13 @@ export const StyledSlider = styled(Slider)`
   }
 `;
 
-export const SliderButton = styled(SliredArrow)<{ $currentSlide?: number }>`
+export const SliderButton = styled.button`
   position: absolute;
   top: -21px;
   right: 55px;
   cursor: pointer;
   &:nth-child(3) {
-    top: -21px;
+    top: -25px;
     right: -2px;
     position: absolute;
     transform: rotate(180deg);

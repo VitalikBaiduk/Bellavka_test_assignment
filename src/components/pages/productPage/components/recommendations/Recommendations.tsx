@@ -5,6 +5,7 @@ import { theme } from "../../../../../styles/theme";
 import { useState } from "react";
 import { SliderButton, StyledSlider, TitleBlock, Wrapper } from "./styles";
 import { useWindowSize } from "../../../../../hooks/useWindowSize";
+import { ReactComponent as SliredArrow } from "../../../../../assets/sliderArrow.svg";
 
 type RecommendationsProps = {
   recommendations: ProductDataType[];
@@ -22,8 +23,16 @@ export const Recommendations = ({ recommendations }: RecommendationsProps) => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SliderButton />,
-    prevArrow: <SliderButton />,
+    nextArrow: (
+      <SliderButton>
+        <SliredArrow />
+      </SliderButton>
+    ),
+    prevArrow: (
+      <SliderButton>
+        <SliredArrow />
+      </SliderButton>
+    ),
     afterChange: (currentslide: any) => {
       setActiveRecItem(currentslide + 1);
     },
@@ -38,8 +47,16 @@ export const Recommendations = ({ recommendations }: RecommendationsProps) => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SliderButton />,
-    prevArrow: <SliderButton />,
+    nextArrow: (
+      <SliderButton>
+        <SliredArrow />
+      </SliderButton>
+    ),
+    prevArrow: (
+      <SliderButton>
+        <SliredArrow />
+      </SliderButton>
+    ),
   };
 
   const sliderSettings = phone ? mobileSettings : settings;

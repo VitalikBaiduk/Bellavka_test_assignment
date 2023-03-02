@@ -43,7 +43,7 @@ export const GlobalWrapperInner = styled.div`
 
 export const RecommendationsWrapper = styled.div`
   width: 100%;
-  max-width: 445px;
+  max-width: 450px;
 `;
 
 export const MobileWrapper = styled.div`
