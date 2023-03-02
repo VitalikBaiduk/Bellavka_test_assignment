@@ -1,4 +1,3 @@
-import { BackButton } from "../../../../../common/commonButtons/backButton/BackButton";
 import { ReactComponent as Share } from "../../../../../../assets/union.svg";
 import { ProductPhotosProps } from "../ProductPhotos";
 import { theme } from "../../../../../../styles/theme";
@@ -16,6 +15,7 @@ import {
   StyledSlider,
   Wrapper,
 } from "./styles";
+import { BackButton } from "../../../../../common/commonButtons/backButton/BackButton";
 
 export const ProductPhotosForMobile = ({
   photos,
