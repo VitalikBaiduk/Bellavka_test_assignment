@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import styled from "styled-components";
-import { ReactComponent as Player } from "../../../../../assets/videoPlayer.svg";
+import { ReactComponent as Player } from "../../../../../assets/VideoPlayer.svg";
 
 export const Wrapper = styled.div`
   width: 100%;
