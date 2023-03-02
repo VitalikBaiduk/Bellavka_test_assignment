@@ -90,7 +90,7 @@ export const ProductPage = () => {
 
   return (
     <>
-      {error.length && alert(error)}
+      {error.length > 0 && alert(error)}
       {isActiveModal && (
         <Modal
           id={id}
