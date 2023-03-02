@@ -97,10 +97,11 @@ export const Dots = styled.ul`
   & > li > button {
     width: 10px;
     height: 10px;
-    border: 1px solid black;
+    border: 1px solid;
     border-color: ${() => theme.black};
     border-radius: 100%;
     font-size: 0;
+    background: none;
   }
   & > li.slick-active {
     & > button {
