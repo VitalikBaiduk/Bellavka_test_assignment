@@ -1,6 +1,7 @@
 import { ReactComponent as Share } from "../../../../../../assets/union.svg";
 import { ProductPhotosProps } from "../ProductPhotos";
 import { theme } from "../../../../../../styles/theme";
+import { BackButton } from "../../../../../common/commonButtons/backButton/BackButton";
 import {
   ActiveVideo,
   Dots,
@@ -15,7 +16,6 @@ import {
   StyledSlider,
   Wrapper,
 } from "./styles";
-import { BackButton } from "../../../../../common/commonButtons/backButton/BackButton";
 
 export const ProductPhotosForMobile = ({
   photos,
@@ -47,16 +47,12 @@ export const ProductPhotosForMobile = ({
       <BackButton />
       <StyledSlider {...settings}>
         {displayedData.map((item: any, index: number) => {
-          return (
-            <>
-              {item === displayedData[displayedData.length - 1] ? (
-                <ActiveVideo key={index} muted loop autoPlay>
-                  <source type="video/mp4" src={item.original} />
-                </ActiveVideo>
-              ) : (
-                <StyledImg key={index} src={item.original} alt={alt} />
-              )}
-            </>
+          return item === displayedData[displayedData.length - 1] ? (
+            <ActiveVideo key={index} muted loop autoPlay>
+              <source type="video/mp4" src={item.original} />
+            </ActiveVideo>
+          ) : (
+            <StyledImg key={index} src={item.original} alt={alt} />
           );
         })}
       </StyledSlider>
