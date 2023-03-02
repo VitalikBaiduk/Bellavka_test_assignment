@@ -2,7 +2,7 @@ import { StyledText } from "../../../../../styles/globalStyles";
 import { ReactComponent as HideDataIcon } from "../../../../../assets/circle-double-down.svg";
 import { theme } from "../../../../../styles/theme";
 import { AboutTheProductType } from "../../../../../types/types";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { TitleBlock, Wrapper } from "./styles";
 import { useWindowSize } from "../../../../../hooks/useWindowSize";
 import { MoreInfoButton } from "../../../../moreInfoButton/MoreInfoButton";
@@ -27,6 +27,8 @@ export const AboutTheProduct = ({ data }: AboutTheProductProps) => {
   const [isShowInfo, setIsShowInfo] = useState(true);
   const windowWidth = useWindowSize()[0];
   const phone = windowWidth <= 1050;
+
+  const { gray } = theme;
 
   const productdata = [
     {
@@ -82,7 +84,7 @@ export const AboutTheProduct = ({ data }: AboutTheProductProps) => {
       {productdata.map(
         (item: { label: string; value: string }, index: number) => {
           return (
-            <StyledText key={index} margin="8px 0 0" color={theme.gray}>
+            <StyledText key={index} margin="8px 0 0" color={gray}>
               {item.label}
               <StyledText lineHeight="150%">{item.value}</StyledText>
             </StyledText>

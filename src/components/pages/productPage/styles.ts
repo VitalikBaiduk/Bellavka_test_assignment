@@ -16,7 +16,7 @@ export const HeaderBlock = styled.div`
 
 export const GlobalWrapper = styled.div`
   display: flex;
-  @media (max-width: 1000px) {
+  @media (max-width: 1050px) {
     flex-direction: column;
   }
 `;
@@ -35,7 +35,7 @@ export const GlobalWrapperInner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  @media (max-width: 1000px) {
+  @media (max-width: 1050px) {
     width: 100%;
     align-items: flex-start;
   }
@@ -44,4 +44,9 @@ export const GlobalWrapperInner = styled.div`
 export const RecommendationsWrapper = styled.div`
   width: 100%;
   max-width: 445px;
+`;
+
+export const MobileWrapper = styled.div`
+  width: 100%;
+  padding: 0 20px;
 `;

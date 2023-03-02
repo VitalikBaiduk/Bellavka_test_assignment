@@ -12,17 +12,13 @@ type SizeInfoProps = {
 
 export const SizeInfo = ({ sizeData, id }: SizeInfoProps) => {
   const [sizes, heights] = sizeData;
+  const { gold } = theme;
 
   return (
     <SizeBlock>
       <SizeBlockHeader>
         <StyledText>Размеры:</StyledText>
-        <StyledText
-          cursor="pointer"
-          border
-          borderColor={theme.gold}
-          color={theme.gold}
-        >
+        <StyledText cursor="pointer" border borderColor={gold} color={gold}>
           Таблица размеров
         </StyledText>
       </SizeBlockHeader>

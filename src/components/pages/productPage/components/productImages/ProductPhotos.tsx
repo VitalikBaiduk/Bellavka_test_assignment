@@ -41,6 +41,8 @@ export const ProductPhoto = ({
   const [activeItem, setActiveItem] = useState(0);
   const sliderRef = useRef(null);
 
+  const { green, red, white } = theme;
+
   const displayedData = [...photos, ...videos];
 
   useEffect(() => {
@@ -95,13 +97,13 @@ export const ProductPhoto = ({
         ) : (
           <ActiveItem src={displayedData[activeItem].original} alt={alt} />
         )}
-        <ActiveItemTopLabel color={theme.green}>
-          <StyledText fontWeight="600" color={theme.white}>
+        <ActiveItemTopLabel color={green}>
+          <StyledText fontWeight="600" color={white}>
             NEW
           </StyledText>
         </ActiveItemTopLabel>
-        <ActiveItemBottomLabel color={theme.red}>
-          <StyledText fontWeight="600" color={theme.white}>
+        <ActiveItemBottomLabel color={red}>
+          <StyledText fontWeight="600" color={white}>
             {promocode}
           </StyledText>
         </ActiveItemBottomLabel>

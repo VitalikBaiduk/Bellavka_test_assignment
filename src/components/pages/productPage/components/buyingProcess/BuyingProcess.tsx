@@ -25,6 +25,8 @@ export const BuyingProcess = ({
     (state: ReduxState) => state.product
   );
 
+  const { gold2 } = theme;
+
   const onClick = () => {
     activeItems.items.activeHeigth === null
       ? setIsActiveModal(true)
@@ -39,7 +41,7 @@ export const BuyingProcess = ({
       <ButtonsWrapper>
         <CommonButton
           onClick={onClick}
-          backgroundColor={theme.gold2}
+          backgroundColor={gold2}
           Icon={Cart}
           text={"в корзину"}
         ></CommonButton>

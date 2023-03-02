@@ -19,20 +19,24 @@ export const LinksToBrand = ({
   linksToBrand,
   linksToAll,
 }: LinksToBrandProps) => {
+  const { white } = theme;
+
+  const linkMargin = "0 5px 0 0";
+
   return (
     <Wrapper>
       <DeliveryBlock>
-        <DeliveryAvailability color={theme.white}>
+        <DeliveryAvailability color={white}>
           {deliveryAvailability ? deliveryAvailability : ""}
         </DeliveryAvailability>
         <Logo />
       </DeliveryBlock>
       <Link href={linksToBrand}>
-        <StyledText margin="0 5px 0 0">Все платья Luitui</StyledText>
+        <StyledText margin={linkMargin}>Все платья Luitui</StyledText>
         <Arrow />
       </Link>
       <Link href={linksToAll}>
-        <StyledText margin="0 5px 0 0">Все платья </StyledText>
+        <StyledText margin={linkMargin}>Все платья </StyledText>
         <Arrow />
       </Link>
     </Wrapper>

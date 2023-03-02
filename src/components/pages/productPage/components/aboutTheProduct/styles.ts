@@ -12,6 +12,9 @@ export const Wrapper = styled.div<{ isShowInfo: boolean }>`
   & > span {
     display: ${({ isShowInfo }) => (isShowInfo ? "" : "none")};
   }
+  @media (max-width: 1050px) {
+    max-width: 100%;
+  }
 `;
 
 export const TitleBlock = styled.div`

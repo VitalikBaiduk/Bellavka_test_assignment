@@ -10,6 +10,7 @@ type ShipmentProps = {
 
 export const Shipment = ({ city, data }: ShipmentProps) => {
   const { fittingPrice, courierPrice, postPrice, symbol } = data;
+  const { gold } = theme;
 
   const shipmentData = [
     { label: "С примеркой: от ", value: fittingPrice },
@@ -22,14 +23,15 @@ export const Shipment = ({ city, data }: ShipmentProps) => {
       <StyledText fontWeight="600">Доставка: {city}</StyledText>
       {shipmentData.map(
         (item: { label: string; value: string }, index: number) => {
+          const { label, value } = item;
           return (
             <StyledText key={index} margin="5px 0 0" fontWeight="400">
-              {item.label + item.value + symbol}
+              {label + value + symbol}
             </StyledText>
           );
         }
       )}
-      <ChangeButton cursor="pointer" border color={theme.gold}>
+      <ChangeButton cursor="pointer" border color={gold}>
         Изменить
       </ChangeButton>
     </Wrapper>

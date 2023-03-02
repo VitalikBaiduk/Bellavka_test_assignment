@@ -1,19 +1,6 @@
-import styled from "styled-components";
 import { StyledText } from "../../../../../styles/globalStyles";
 import { theme } from "../../../../../styles/theme";
-
-export const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-top: 15px;
-`;
-
-export const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { TextWrapper, Wrapper } from "./styles";
 
 type BrandInfoProps = {
   fullName: string;
@@ -32,11 +19,13 @@ export const BrandInfo = ({
   category,
   Logo,
 }: BrandInfoProps) => {
+  const { gray } = theme;
+
   return (
     <Wrapper>
       <TextWrapper>
         <StyledText>{fullName + " " + color}</StyledText>
-        <StyledText color={theme.gray}>{category}</StyledText>
+        <StyledText color={gray}>{category}</StyledText>
       </TextWrapper>
       <Logo />
     </Wrapper>

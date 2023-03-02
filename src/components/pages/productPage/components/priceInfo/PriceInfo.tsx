@@ -45,27 +45,28 @@ export const PriceInfo = ({
   const phone = windowWidth <= 1050;
   const [isShowMoreInfo, setIsShowMoreInfo] = useState(true);
 
+  const { black, white, gold, gold1, gray, red } = theme;
+  const { retail, symbol, wholesale, retailOld, wholesaleOld, discount } =
+    prices;
+
+  const { description, endedAt } = promocode;
+
   const priceHandler = (type: PriceType) => {
     const priceResult = {
-      [PriceType.CURRENT]: toggle
-        ? prices.retail + prices.symbol
-        : prices.wholesale + prices.symbol,
-      [PriceType.OLD]: toggle
-        ? prices.retailOld + prices.symbol
-        : prices.wholesaleOld + prices.symbol,
+      [PriceType.CURRENT]: toggle ? retail + symbol : wholesale + symbol,
+      [PriceType.OLD]: toggle ? retailOld + symbol : wholesaleOld + symbol,
       [PriceType.SECOND_OPTION_OF_PRICE]: toggle
-        ? "Оптовая цена: " + prices.wholesale + prices.symbol
-        : "Розничная цена: " + prices.retail + prices.symbol,
+        ? "Оптовая цена: " + wholesale + symbol
+        : "Розничная цена: " + retail + symbol,
     };
 
     return priceResult[type];
   };
-
   return (
     <>
       <PriceBlock>
-        <PriceBlockHeader color={theme.black}>
-          <StyledText color={phone ? theme.black : theme.white}>
+        <PriceBlockHeader color={black}>
+          <StyledText color={phone ? black : white}>
             {toggle ? "Розничная цена:" : "Оптовая цена:"}
           </StyledText>
           {phone && (
@@ -78,56 +79,54 @@ export const PriceInfo = ({
         <PriceBlockItem>
           <Prices>
             <CurrentPriceBlock>
-              <StyledText fontSize="45px" fontWeight="600" color={theme.gold}>
+              <StyledText fontSize="45px" fontWeight="600" color={gold}>
                 {priceHandler(PriceType.CURRENT)}
               </StyledText>
-              <OldPrice margin="0 0 0 10px" fontWeight="400" color={theme.gray}>
+              <OldPrice margin="0 0 0 10px" fontWeight="400" color={gray}>
                 {priceHandler(PriceType.OLD)}
               </OldPrice>
             </CurrentPriceBlock>
             <DiscountsDescriptionBlock>
-              <StyledText fontSize="14px" fontWeight="400" color={theme.red}>
-                {"-" + prices.discount.market.amount + prices.symbol + " "}
-                <StyledText fontSize="14px" fontWeight="400" color={theme.gray}>
-                  скидка бренда {prices.discount.market.percent + "%"}
+              <StyledText fontSize="14px" fontWeight="400" color={red}>
+                {"-" + discount.market.amount + symbol + " "}
+                <StyledText fontSize="14px" fontWeight="400" color={gray}>
+                  скидка бренда {discount.market.percent + "%"}
                 </StyledText>
               </StyledText>
               <StyledText
                 margin="5px 0 0 "
                 fontSize="14px"
                 fontWeight="400"
-                color={theme.red}
+                color={red}
               >
-                {"-" + prices.discount.promocode.amount + prices.symbol + " "}
-                <StyledText fontSize="14px" fontWeight="400" color={theme.gray}>
-                  {name} {prices.discount.promocode.percent + "%"}
+                {"-" + discount.promocode.amount + symbol + " "}
+                <StyledText fontSize="14px" fontWeight="400" color={gray}>
+                  {name} {discount.promocode.percent + "%"}
                 </StyledText>
               </StyledText>
             </DiscountsDescriptionBlock>
           </Prices>
           {isShowMoreInfo && (
-            <PromocodeBlock backgroundColor={theme.gold1}>
+            <PromocodeBlock backgroundColor={gold1}>
               <PromocodeDescr>
                 <MainPromocodeDescr>
                   <StyledText textTransform fontWeight="600">
                     промокод {name}
                   </StyledText>
-                  <StyledText fontWeight="400">
-                    {promocode.description}
-                  </StyledText>
+                  <StyledText fontWeight="400">{description}</StyledText>
                 </MainPromocodeDescr>
 
                 <EndPromoBlock>
                   <ClockIcon />
                   <StyledText margin="0 0 0 5px">
-                    {moment(promocode.endedAt).format("M : d : hh : mm")}
+                    {moment(endedAt).format("M : d : hh : mm")}
                   </StyledText>
                 </EndPromoBlock>
               </PromocodeDescr>
               <CustomBorder />
               <PromocodePercent>
                 <StyledText fontSize="60px" fontWeight="800">
-                  {"-" + prices.discount.promocode.percent + "%"}
+                  {"-" + discount.promocode.percent + "%"}
                 </StyledText>
               </PromocodePercent>
             </PromocodeBlock>

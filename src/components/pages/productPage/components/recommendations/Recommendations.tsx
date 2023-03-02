@@ -15,6 +15,8 @@ export const Recommendations = ({ recommendations }: RecommendationsProps) => {
   const windowWidth = useWindowSize()[0];
   const phone = windowWidth <= 1050;
 
+  const { gold, black, gray } = theme;
+
   const settings = {
     dots: true,
     infinite: true,
@@ -36,6 +38,8 @@ export const Recommendations = ({ recommendations }: RecommendationsProps) => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <SliderButton />,
+    prevArrow: <SliderButton />,
   };
 
   const sliderSettings = phone ? mobileSettings : settings;
@@ -43,28 +47,29 @@ export const Recommendations = ({ recommendations }: RecommendationsProps) => {
   return (
     <Wrapper>
       <TitleBlock>
-        <StyledText fontSize="20px" color={phone ? theme.gold : theme.black}>
+        <StyledText fontSize="20px" color={phone ? gold : black}>
           Вам может понравиться:
         </StyledText>
         {!phone && (
-          <StyledText margin="0 16px 0 0" color={theme.gray}>
+          <StyledText margin="0 16px 0 0" color={gray}>
             {activeRecItem + "/"}
-            <StyledText color={theme.gray}>{recommendations.length}</StyledText>
+            <StyledText color={gray}>{recommendations.length}</StyledText>
           </StyledText>
         )}
       </TitleBlock>
 
       <StyledSlider {...sliderSettings}>
         {recommendations.map((item: ProductDataType, index: number) => {
+          const { photos, price, brand, kits } = item;
           return (
             <RecommendationsItem
               key={index}
-              img={item.photos[0].original}
-              currentPrice={item.price.current}
-              oldPrice={item.price.old}
-              brand={item.brand.value}
-              kit={item.kits[0].value}
-              discount={item.price.discount.market.percent}
+              img={photos[0].original}
+              currentPrice={price.current}
+              oldPrice={price.old}
+              brand={brand.value}
+              kit={kits[0].value}
+              discount={price.discount.market.percent}
             />
           );
         })}

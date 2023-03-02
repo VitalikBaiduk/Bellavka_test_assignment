@@ -19,6 +19,7 @@ import {
   MainInfoWrapper,
   GlobalWrapperInner,
   RecommendationsWrapper,
+  MobileWrapper,
 } from "./styles";
 import { Modal } from "../../modal/Modal";
 import { ModalType, SizeType } from "../../../enums/enums";
@@ -31,20 +32,13 @@ import { ReactComponent as BrandLogo } from "../../../assets/brandLogo.svg";
 import { Recommendations } from "./components/recommendations/Recommendations";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { ProductPhotosForMobile } from "./components/productImages/mobile/ProductPhotosForMobile";
-import styled from "styled-components";
-import { StyledText } from "../../../styles/globalStyles";
-import { theme } from "../../../styles/theme";
 import { BrandInfo } from "./components/brandInfo/BrandInfo";
-
-export const MobileWrapper = styled.div`
-  width: 100%;
-  padding: 0 20px;
-`;
 
 export const ProductPage = () => {
   const windowWidth = useWindowSize()[0];
   const phone = windowWidth <= 1050;
   const [toggle, setToggle] = useState(false);
+  const [error, setError] = useState("");
   const [isActiveModal, setIsActiveModal] = useState(false);
   const dispatch = useTypedDispatch();
   const { product, activeItems } = useTypedSelector(
@@ -89,13 +83,14 @@ export const ProductPage = () => {
         ? SizeType.HEIGTH
         : ("" as SizeType),
   };
-  console.log(data);
+
   useEffect(() => {
-    dispatch(getProductData());
+    dispatch(getProductData(setError));
   }, []);
 
   return (
     <>
+      {error.length && alert(error)}
       {isActiveModal && (
         <Modal
           id={id}
@@ -116,55 +111,55 @@ export const ProductPage = () => {
           <GlobalWrapper>
             <GlobalWrapperInner>
               {!phone ? (
-                <ProductPhoto
-                  photos={photos}
-                  videos={videos}
-                  alt={fullName}
-                  promocode={promocode.name}
-                />
+                <>
+                  <ProductPhoto
+                    photos={photos}
+                    videos={videos}
+                    alt={fullName}
+                    promocode={promocode.name}
+                  />
+                  <RecommendationsWrapper>
+                    <LinksToBrand
+                      deliveryAvailability={availabilityStatus}
+                      Logo={BrandLogo}
+                      linksToBrand={""}
+                      linksToAll={""}
+                    />
+                    <Recommendations recommendations={recommended} />
+                  </RecommendationsWrapper>
+                </>
               ) : (
-                <ProductPhotosForMobile
-                  photos={photos}
-                  videos={videos}
-                  alt={fullName}
-                  promocode={promocode.name}
-                />
-              )}
-              {!phone && (
-                <RecommendationsWrapper>
-                  <LinksToBrand
-                    deliveryAvailability={availabilityStatus}
-                    Logo={BrandLogo}
-                    linksToBrand={""}
-                    linksToAll={""}
+                <>
+                  <ProductPhotosForMobile
+                    photos={photos}
+                    videos={videos}
+                    alt={fullName}
+                    promocode={promocode.name}
                   />
-                  <Recommendations recommendations={recommended} />
-                </RecommendationsWrapper>
-              )}
-              {phone && (
-                <MobileWrapper>
-                  <ExtraInfo toggle={toggle} setToggle={setToggle} />
-                  <BrandInfo
-                    fullName={fullName}
-                    color={colors[0].value}
-                    category={category.value}
-                    Logo={BrandLogo}
-                  ></BrandInfo>
-                  <PriceInfo
-                    promocode={promocode}
-                    name={promocode.name}
-                    prices={price}
-                    toggle={toggle}
-                  />
-                  <BuyingProcess
-                    setIsActiveModal={setIsActiveModal}
-                    id={id}
-                    sizeData={[sizes, heights]}
-                  />
-                  <Shipment city={"Москва"} data={shipmentData} />
-                  <AboutTheProduct data={aboutTheProductData} />
-                  <Recommendations recommendations={recommended} />
-                </MobileWrapper>
+                  <MobileWrapper>
+                    <ExtraInfo toggle={toggle} setToggle={setToggle} />
+                    <BrandInfo
+                      fullName={fullName}
+                      color={colors[0].value}
+                      category={category.value}
+                      Logo={BrandLogo}
+                    ></BrandInfo>
+                    <PriceInfo
+                      promocode={promocode}
+                      name={promocode.name}
+                      prices={price}
+                      toggle={toggle}
+                    />
+                    <BuyingProcess
+                      setIsActiveModal={setIsActiveModal}
+                      id={id}
+                      sizeData={[sizes, heights]}
+                    />
+                    <Shipment city={"Москва"} data={shipmentData} />
+                    <AboutTheProduct data={aboutTheProductData} />
+                    <Recommendations recommendations={recommended} />
+                  </MobileWrapper>
+                </>
               )}
             </GlobalWrapperInner>
             {!phone && (

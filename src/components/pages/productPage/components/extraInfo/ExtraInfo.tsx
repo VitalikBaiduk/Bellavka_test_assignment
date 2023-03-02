@@ -12,7 +12,6 @@ import {
   WrapperPriceOptions,
   WrapperReviews,
 } from "./styles";
-import { useWindowSize } from "../../../../../hooks/useWindowSize";
 import { ResourceButtons } from "../../../../commonButtons/resourceButtons/ResourceButtons";
 import { ResourceButtonType } from "../../../../../enums/enums";
 
@@ -28,36 +27,34 @@ export const ExtraInfo = ({ toggle, setToggle }: ExtraInfoProps) => {
     { type: ResourceButtonType.QUESTIONS },
   ];
 
+  const { gray, black, gold } = theme;
+
   return (
     <Wrapper>
       <WrapperInner>
         <WrapperBuyInfo>
-          <StyledText color={theme.gray}>купили 43 раза</StyledText>
-          <StyledText margin="0 10px" color={theme.gray}>
+          <StyledText color={gray}>купили 43 раза</StyledText>
+          <StyledText margin="0 10px" color={gray}>
             |
           </StyledText>
           <CartInfoWrapper>
             <Cart />
-            <StyledText margin="0 0 0 4px" color={theme.gray}>
+            <StyledText margin="0 0 0 4px" color={gray}>
               в корзине у 15 пользователей
             </StyledText>
           </CartInfoWrapper>
         </WrapperBuyInfo>
         <WrapperPriceOptions>
-          <StyledText color={toggle ? theme.gray : theme.black}>
-            Оптовые цены
-          </StyledText>
+          <StyledText color={toggle ? gray : black}>Оптовые цены</StyledText>
           <Switch>
-            <Input color={theme.gold} type="checkbox" defaultChecked={toggle} />
+            <Input color={gold} type="checkbox" defaultChecked={toggle} />
             <Slider
               toggle={toggle}
-              color={theme.gold}
+              color={gold}
               onClick={() => setToggle(!toggle)}
             />
           </Switch>
-          <StyledText color={toggle ? theme.black : theme.gray}>
-            Розничные цены
-          </StyledText>
+          <StyledText color={toggle ? black : gray}>Розничные цены</StyledText>
         </WrapperPriceOptions>
       </WrapperInner>
       <WrapperReviews>

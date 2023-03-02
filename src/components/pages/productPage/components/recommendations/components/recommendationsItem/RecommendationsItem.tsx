@@ -27,17 +27,19 @@ export const RecommendationsItem = ({
   kit,
   discount,
 }: RecommendationsItemProps) => {
+  const { gold, gray, white } = theme;
+
   return (
     <Wrapper>
       <StyledImg src={img} alt={"recommendation product"} />
       <PriceBlock>
-        <StyledText fontSize="14px" fontWeight="600" color={theme.gold}>
+        <StyledText fontSize="14px" fontWeight="600" color={gold}>
           {currentPrice}
           <OldPrice
             margin="0 0 0 5px"
             fontSize="10px"
             fontWeight="400"
-            color={theme.gray}
+            color={gray}
           >
             {oldPrice}
           </OldPrice>
@@ -45,12 +47,12 @@ export const RecommendationsItem = ({
         <CartIcon />
       </PriceBlock>
       <StyledText fontSize="12px">{brand}</StyledText>
-      <StyledText fontSize="12px" color={theme.gray}>
+      <StyledText fontSize="12px" color={gray}>
         {kit}
       </StyledText>
       <LikeIcon />
       {discount > 0 && (
-        <Discount fontSize="12px" fontWeight="700" color={theme.white}>
+        <Discount fontSize="12px" fontWeight="700" color={white}>
           {"-" + discount + "%"}
         </Discount>
       )}

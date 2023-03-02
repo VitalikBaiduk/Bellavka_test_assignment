@@ -32,6 +32,8 @@ export const Modal = ({ id, setIsActiveModal, modalInfo }: ModalProps) => {
   const modalHeigth = localHeigth as number | null;
   const { modalType, contentType, contentTitle, modalTitle } = modalInfo;
 
+  const { white } = theme;
+
   const sendData = () => {
     if (modalSizes.length !== 0) {
       dispatch(
@@ -84,7 +86,7 @@ export const Modal = ({ id, setIsActiveModal, modalInfo }: ModalProps) => {
           </>
         )}
         <SaveButton>
-          <StyledText onClick={sendData} color={theme.white}>
+          <StyledText onClick={sendData} color={white}>
             Сохранить
           </StyledText>
         </SaveButton>

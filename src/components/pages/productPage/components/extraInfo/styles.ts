@@ -17,6 +17,7 @@ export const WrapperInner = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 `;
+
 export const WrapperBuyInfo = styled.div`
   display: flex;
   align-items: center;
@@ -49,9 +50,12 @@ export const WrapperPriceOptions = styled.div`
 export const WrapperReviews = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 20px;
   margin-top: 15px;
+  @media (max-width: 1050px) {
+    gap: 0;
+    justify-content: space-between;
+  }
 `;
 
 export const Slider = styled.span<{ toggle: boolean; color: string }>`
@@ -70,7 +74,6 @@ export const Slider = styled.span<{ toggle: boolean; color: string }>`
     content: "";
     position: absolute;
     left: 1px;
-    bottom: 0.5px;
     width: 11px;
     height: 11px;
     border-radius: 100%;

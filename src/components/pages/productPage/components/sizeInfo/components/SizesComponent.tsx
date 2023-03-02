@@ -43,6 +43,7 @@ export const SizesComponent = ({
   );
 
   const { data } = product;
+  const { gold, gray, white } = theme;
 
   const isActiveSize = (currentItemId: number) => {
     const foundElement = isInModal
@@ -140,19 +141,20 @@ export const SizesComponent = ({
     <Wrapper>
       {title && <StyledText>{title}</StyledText>}
       <SizesWrapper>
-        {sizeData.map((item: any) => (
-          <Sizes
-            borderColor={isActive(item.id) ? theme.gold : theme.gray}
-            onClick={() => onClick(item.isActual, item.id)}
-            key={item.id}
-            isActive={isActive(item.id)}
-          >
-            <StyledText color={isActive(item.id) ? theme.white : ""}>
-              {item.value}
-            </StyledText>
-            {!item.isActual && type === SizeType.SIZE && <StyledRemind />}
-          </Sizes>
-        ))}
+        {sizeData.map((item: any) => {
+          const { id, isActual, value } = item;
+          return (
+            <Sizes
+              borderColor={isActive(id) ? gold : gray}
+              onClick={() => onClick(isActual, id)}
+              key={id}
+              isActive={isActive(id)}
+            >
+              <StyledText color={isActive(id) ? white : ""}>{value}</StyledText>
+              {!isActual && type === SizeType.SIZE && <StyledRemind />}
+            </Sizes>
+          );
+        })}
       </SizesWrapper>
     </Wrapper>
   );
