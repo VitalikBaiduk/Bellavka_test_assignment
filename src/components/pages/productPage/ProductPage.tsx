@@ -5,8 +5,7 @@ import {
   useTypedSelector,
 } from "../../../state/store";
 import { getProductData } from "../../../state/thunks/getProductData";
-import { BackButton } from "../../commonButtons/backButton/BackButton";
-import { Loader } from "../../loader/Loader";
+import { BackButton } from "../../common/commonButtons/backButton/BackButton";
 import { ProductPhoto } from "./components/productImages/ProductPhotos";
 import { ExtraInfo } from "./components/extraInfo/ExtraInfo";
 import { PriceInfo } from "./components/priceInfo/PriceInfo";
@@ -21,7 +20,6 @@ import {
   RecommendationsWrapper,
   MobileWrapper,
 } from "./styles";
-import { Modal } from "../../modal/Modal";
 import { ModalType, SizeType } from "../../../enums/enums";
 import { BuyingProcess } from "./components/buyingProcess/BuyingProcess";
 import { Shipment } from "./components/shipment/Shipment";
@@ -33,6 +31,8 @@ import { Recommendations } from "./components/recommendations/Recommendations";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { ProductPhotosForMobile } from "./components/productImages/mobile/ProductPhotosForMobile";
 import { BrandInfo } from "./components/brandInfo/BrandInfo";
+import { Modal } from "../../common/modal/Modal";
+import { Loader } from "../../common/loader/Loader";
 
 export const ProductPage = () => {
   const windowWidth = useWindowSize()[0];

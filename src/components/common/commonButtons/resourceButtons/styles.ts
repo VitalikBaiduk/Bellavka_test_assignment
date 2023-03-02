@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
-import { ReactComponent as Arrow } from "../../../assets/arrowRight.svg";
+import { theme } from "../../../../styles/theme";
+import { ReactComponent as Arrow } from "../../../../assets/arrowRight.svg";
 
 export const ReviewsButton = styled.a<{ borderColor: string }>`
   position: relative;

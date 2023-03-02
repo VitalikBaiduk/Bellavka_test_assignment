@@ -5,7 +5,7 @@ import { AboutTheProductType } from "../../../../../types/types";
 import { useState } from "react";
 import { TitleBlock, Wrapper } from "./styles";
 import { useWindowSize } from "../../../../../hooks/useWindowSize";
-import { MoreInfoButton } from "../../../../moreInfoButton/MoreInfoButton";
+import { MoreInfoButton } from "../../../../common/moreInfoButton/MoreInfoButton";
 
 type AboutTheProductProps = {
   data: AboutTheProductType;

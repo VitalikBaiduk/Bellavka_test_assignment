@@ -24,7 +24,7 @@ export const StyledSlider = styled(Slider)`
   }
 `;
 
-export const SliderButton = styled(SliredArrow)`
+export const SliderButton = styled(SliredArrow)<{ $currentSlide?: number }>`
   position: absolute;
   top: -21px;
   right: 55px;

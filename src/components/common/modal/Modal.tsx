@@ -1,16 +1,16 @@
+import { useState } from "react";
+import { ModalType, SizeType } from "../../../enums/enums";
+import { addActiveProductItems } from "../../../state/actions/addActiveProductItems";
 import {
   ReduxState,
   useTypedDispatch,
   useTypedSelector,
-} from "../../state/store";
-import { StyledText } from "../../styles/globalStyles";
-import { theme } from "../../styles/theme";
-import { ModalType, SizeType } from "../../enums/enums";
-import { SizesComponent } from "../pages/productPage/components/sizeInfo/components/SizesComponent";
+} from "../../../state/store";
+import { StyledText } from "../../../styles/globalStyles";
+import { theme } from "../../../styles/theme";
+import { ModalInfoType } from "../../../types/types";
+import { SizesComponent } from "../../pages/productPage/components/sizeInfo/components/SizesComponent";
 import { ModalItem, SaveButton, Wrapper } from "./styles";
-import { useState } from "react";
-import { addActiveProductItems } from "../../state/actions/addActiveProductItems";
-import { ModalInfoType } from "../../types/types";
 
 type ModalProps = {
   id: number;

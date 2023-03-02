@@ -12,7 +12,7 @@ import {
   WrapperPriceOptions,
   WrapperReviews,
 } from "./styles";
-import { ResourceButtons } from "../../../../commonButtons/resourceButtons/ResourceButtons";
+import { ResourceButtons } from "../../../../common/commonButtons/resourceButtons/ResourceButtons";
 import { ResourceButtonType } from "../../../../../enums/enums";
 
 type ExtraInfoProps = {
@@ -58,8 +58,8 @@ export const ExtraInfo = ({ toggle, setToggle }: ExtraInfoProps) => {
         </WrapperPriceOptions>
       </WrapperInner>
       <WrapperReviews>
-        {buttonsDataArr.map((item) => {
-          return <ResourceButtons type={item.type} />;
+        {buttonsDataArr.map((item, index: number) => {
+          return <ResourceButtons key={index} type={item.type} />;
         })}
       </WrapperReviews>
     </Wrapper>

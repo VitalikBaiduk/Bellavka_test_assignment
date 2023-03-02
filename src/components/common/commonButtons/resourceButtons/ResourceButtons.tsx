@@ -1,10 +1,10 @@
-import { theme } from "../../../styles/theme";
-import { ReactComponent as VideoIcon } from "../../../assets/videoIcon.svg";
-import { ReactComponent as MessageIcon } from "../../../assets/messageIcon.svg";
-import { ReactComponent as Help } from "../../../assets/help.svg";
-import { ResourceButtonType } from "../../../enums/enums";
-import { StyledText } from "../../../styles/globalStyles";
-import { useWindowSize } from "../../../hooks/useWindowSize";
+import { theme } from "../../../../styles/theme";
+import { ReactComponent as VideoIcon } from "../../../../assets/videoIcon.svg";
+import { ReactComponent as MessageIcon } from "../../../../assets/messageIcon.svg";
+import { ReactComponent as Help } from "../../../../assets/help.svg";
+import { ResourceButtonType } from "../../../../enums/enums";
+import { StyledText } from "../../../../styles/globalStyles";
+import { useWindowSize } from "../../../../hooks/useWindowSize";
 import { ReviewsButton, StyledArrow } from "./styles";
 
 type ResourceButtonsProps = {

@@ -1,6 +1,6 @@
-import { ReactComponent as BackArrow } from "../../../assets/backButtonArrow.svg";
-import { useWindowSize } from "../../../hooks/useWindowSize";
-import { StyledText } from "../../../styles/globalStyles";
+import { ReactComponent as BackArrow } from "../../../../assets/backButtonArrow.svg";
+import { useWindowSize } from "../../../../hooks/useWindowSize";
+import { StyledText } from "../../../../styles/globalStyles";
 import { BackButtonWrapper } from "./styles";
 
 export const BackButton = () => {

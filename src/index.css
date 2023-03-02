@@ -25,25 +25,25 @@ code {
 @font-face {
   font-family: "Gilroy";
   font-weight: 300;
-  src: url(./fonts//Gilroy-Light.ttf);
+  src: url(./styles/fonts/Gilroy-Light.ttf);
 }
 
 @font-face {
   font-family: "Gilroy";
   font-weight: 400;
-  src: url(./fonts/Gilroy-Regular.ttf);
+  src: url(./styles/fonts/Gilroy-Regular.ttf);
 }
 
 @font-face {
   font-family: "Gilroy";
   font-weight: 700;
-  src: url(./fonts/Gilroy-Semibold.ttf);
+  src: url(./styles/fonts/Gilroy-Semibold.ttf);
 }
 
 @font-face {
   font-family: "Gilroy";
   font-weight: 800;
-  src: url(./fonts/Gilroy-Bold.ttf);
+  src: url(./styles/fonts/Gilroy-Bold.ttf);
 }
 
 a,

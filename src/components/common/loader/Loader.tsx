@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as LoaderSVG } from "../../assets/loader.svg";
+import { ReactComponent as LoaderSVG } from "../../../assets/loader.svg";
 
 export const Wrapper = styled.div`
   width: 100%;

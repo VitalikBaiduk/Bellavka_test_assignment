@@ -1,4 +1,4 @@
-import { StyledText } from "../../../styles/globalStyles";
+import { StyledText } from "../../../../styles/globalStyles";
 import { Wrapper, WrapperInner } from "./styles";
 
 type CommonButtonProps = {

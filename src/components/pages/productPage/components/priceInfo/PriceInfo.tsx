@@ -26,7 +26,8 @@ import {
   SecondOptioOfPrice,
 } from "./styles";
 import { useWindowSize } from "../../../../../hooks/useWindowSize";
-import { MoreInfoButton } from "../../../../moreInfoButton/MoreInfoButton";
+import { MoreInfoButton } from "../../../../common/moreInfoButton/MoreInfoButton";
+import { Timer } from "../../../../common/timer/Timer";
 
 type PriceInfoProps = {
   promocode: ProductPromocodeType;
@@ -118,9 +119,7 @@ export const PriceInfo = ({
 
                 <EndPromoBlock>
                   <ClockIcon />
-                  <StyledText margin="0 0 0 5px">
-                    {moment(endedAt).format("M : d : hh : mm")}
-                  </StyledText>
+                  <Timer date={new Date(endedAt)} />
                 </EndPromoBlock>
               </PromocodeDescr>
               <CustomBorder />

@@ -55,8 +55,8 @@ export const ProductPhoto = ({
     slidesToShow: 4,
     slidesToScroll: 1,
     vertical: true,
-    afterChange: (currentSlide: any) => {
-      setActiveItem(currentSlide);
+    afterChange: (currentslide: any) => {
+      setActiveItem(currentslide);
     },
     nextArrow: (
       <StyledButton>

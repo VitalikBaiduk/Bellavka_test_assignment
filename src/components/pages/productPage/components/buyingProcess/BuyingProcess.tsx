@@ -1,6 +1,6 @@
 import { theme } from "../../../../../styles/theme";
 import { ProductCommonType, ProductSizeType } from "../../../../../types/types";
-import { CommonButton } from "../../../../commonButtons/commonButton/CommonButton";
+import { CommonButton } from "../../../../common/commonButtons/commonButton/CommonButton";
 import { SizeInfo } from "../sizeInfo/SizeInfo";
 import { ReactComponent as Cart } from "../../../../../assets/blackCart.svg";
 import { ReactComponent as Hand } from "../../../../../assets/hand.svg";

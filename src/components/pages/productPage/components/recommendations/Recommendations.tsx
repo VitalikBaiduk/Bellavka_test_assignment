@@ -24,8 +24,8 @@ export const Recommendations = ({ recommendations }: RecommendationsProps) => {
     slidesToScroll: 1,
     nextArrow: <SliderButton />,
     prevArrow: <SliderButton />,
-    afterChange: (currentSlide: any) => {
-      setActiveRecItem(currentSlide + 1);
+    afterChange: (currentslide: any) => {
+      setActiveRecItem(currentslide + 1);
     },
   };
 
