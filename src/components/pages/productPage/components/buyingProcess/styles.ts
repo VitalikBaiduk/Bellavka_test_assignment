@@ -8,7 +8,9 @@ export const Wrapper = styled.div`
 export const ButtonsWrapper = styled.div`
   display: flex;
   margin-top: 25px;
+  gap: 20px;
   @media (max-width: 1050px) {
+    align-items: center;
     flex-direction: column-reverse;
   }
 `;

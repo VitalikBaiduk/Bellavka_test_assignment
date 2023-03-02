@@ -49,7 +49,6 @@ export const BuyingProcess = ({
           onClick={onClick}
           Icon={Hand}
           text={"купить в 1 клик"}
-          margin={phone ? "0 0 15px 0" : "0 0 0 20px"}
         ></CommonButton>
       </ButtonsWrapper>
     </Wrapper>

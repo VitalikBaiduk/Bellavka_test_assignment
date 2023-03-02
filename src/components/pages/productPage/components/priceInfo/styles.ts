@@ -99,8 +99,7 @@ export const SecondOptioOfPrice = styled.div`
 export const PromocodePercent = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  padding-right: 20px;
 `;
 
 export const EndPromoBlock = styled.div`

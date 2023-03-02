@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { theme } from "../../../../styles/theme";
 
 type WrapperProps = {
-  margin?: string;
   backgroundColor?: string;
 };
 
@@ -18,11 +17,11 @@ export const Wrapper = styled.div<WrapperProps>`
   border-color: ${({ backgroundColor }) =>
     backgroundColor ? backgroundColor : theme.black};
   border-radius: 25px;
-  margin: ${({ margin }) => (margin ? margin : "0")};
   padding: 15px 0;
+  gap: 15px;
   cursor: pointer;
   @media (max-width: 1050px) {
-    max-width: 100%;
+    max-width: 95%;
   }
 `;
 

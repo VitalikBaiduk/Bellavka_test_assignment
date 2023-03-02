@@ -9,7 +9,6 @@ type CommonButtonProps = {
     }
   >;
   text: string;
-  margin?: string;
   onClick: Function;
 };
 
@@ -18,14 +17,9 @@ export const CommonButton = ({
   backgroundColor,
   Icon,
   text,
-  margin,
 }: CommonButtonProps) => {
   return (
-    <Wrapper
-      onClick={() => onClick()}
-      margin={margin}
-      backgroundColor={backgroundColor}
-    >
+    <Wrapper onClick={() => onClick()} backgroundColor={backgroundColor}>
       <WrapperInner>
         <Icon />
         <StyledText textTransform>{text}</StyledText>

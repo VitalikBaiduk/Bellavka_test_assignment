@@ -98,8 +98,8 @@ export const ProductPhoto = ({
           <ActiveItem src={displayedData[activeItem].original} alt={alt} />
         )}
         <ActiveItemTopLabel color={green}>
-          <StyledText fontWeight="600" color={white}>
-            NEW
+          <StyledText textTransform fontWeight="600" color={white}>
+            new
           </StyledText>
         </ActiveItemTopLabel>
         <ActiveItemBottomLabel color={red}>

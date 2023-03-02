@@ -12,7 +12,7 @@ export const SizesWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  margin: 10px 0 30px 0;
+  margin: 10px 0 30px;
   @media (max-width: 1050px) {
     height: 60px;
     position: relative;

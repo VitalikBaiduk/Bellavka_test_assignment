@@ -1,6 +1,5 @@
 import Slider from "react-slick";
 import styled from "styled-components";
-import { ReactComponent as SliredArrow } from "../../../../../assets/sliderArrow.svg";
 
 export const Wrapper = styled.div`
   position: relative;
