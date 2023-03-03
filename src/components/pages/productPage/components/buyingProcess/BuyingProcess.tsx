@@ -6,7 +6,6 @@ import { ReactComponent as Cart } from "../../../../../assets/blackCart.svg";
 import { ReactComponent as Hand } from "../../../../../assets/hand.svg";
 import { ButtonsWrapper, Wrapper } from "./styles";
 import { ReduxState, useTypedSelector } from "../../../../../state/store";
-import { useWindowSize } from "../../../../../hooks/useWindowSize";
 
 type BuyingProcessProps = {
   id: number;
@@ -19,8 +18,6 @@ export const BuyingProcess = ({
   sizeData,
   setIsActiveModal,
 }: BuyingProcessProps) => {
-  const windowWidth = useWindowSize()[0];
-  const phone = windowWidth <= 1050;
   const { activeItems } = useTypedSelector(
     (state: ReduxState) => state.product
   );

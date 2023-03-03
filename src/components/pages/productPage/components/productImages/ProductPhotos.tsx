@@ -5,6 +5,11 @@ import {
 import "slick-carousel/slick/slick.css";
 import { ReactComponent as ArrowUpOrDown } from "../../../../../assets/ArrowUp.svg";
 import { useEffect, useRef, useState } from "react";
+import { StyledText } from "../../../../../styles/globalStyles";
+import { theme } from "../../../../../styles/theme";
+import { ReactComponent as Like } from "../../../../../assets/like.svg";
+import { ReactComponent as Share } from "../../../../../assets/union.svg";
+import { ReactComponent as Download } from "../../../../../assets/download-four.svg";
 import {
   ActiveItem,
   ActiveItemBottomLabel,
@@ -19,11 +24,6 @@ import {
   Wrapper,
   WrapperActiveItem,
 } from "./styles";
-import { StyledText } from "../../../../../styles/globalStyles";
-import { theme } from "../../../../../styles/theme";
-import { ReactComponent as Like } from "../../../../../assets/like.svg";
-import { ReactComponent as Share } from "../../../../../assets/union.svg";
-import { ReactComponent as Download } from "../../../../../assets/download-four.svg";
 
 export type ProductPhotosProps = {
   photos: ProductPhotosType[];

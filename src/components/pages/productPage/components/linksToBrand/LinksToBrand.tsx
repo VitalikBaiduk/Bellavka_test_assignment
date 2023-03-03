@@ -20,7 +20,6 @@ export const LinksToBrand = ({
   linksToAll,
 }: LinksToBrandProps) => {
   const { white } = theme;
-
   const linkMargin = "0 5px 0 0";
 
   return (

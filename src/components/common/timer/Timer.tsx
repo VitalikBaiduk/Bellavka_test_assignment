@@ -17,6 +17,7 @@ export const Timer = ({ date }: TimeProps) => {
 
   useEffect(() => {
     const diff = (finishTime - Number(new Date())) / 1000;
+
     if (diff < 0) return;
     setDiff([
       Math.floor(diff / 86400),
