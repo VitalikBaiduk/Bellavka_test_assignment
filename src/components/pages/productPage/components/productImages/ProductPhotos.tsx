@@ -42,7 +42,6 @@ export const ProductPhoto = ({
   const sliderRef = useRef(null);
 
   const { green, red, white } = theme;
-
   const displayedData = [...photos, ...videos];
 
   useEffect(() => {

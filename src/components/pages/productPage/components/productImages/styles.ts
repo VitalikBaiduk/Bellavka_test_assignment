@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import styled from "styled-components";
 import { ReactComponent as Player } from "../../../../../assets/VideoPlayer.svg";
+import { theme } from "../../../../../styles/theme";
 
 export const Wrapper = styled.div`
   width: 570px;
@@ -81,6 +82,7 @@ export const WrapperActiveItem = styled.div`
 `;
 
 export const ActiveItem = styled.img`
+  width: 100%;
   object-fit: cover;
   border-radius: 6px;
 `;
@@ -90,7 +92,7 @@ export const ActiveItemTopLabel = styled.div`
   position: absolute;
   top: 10px;
   left: 10px;
-  background: ${({ color }) => (color ? color : "#ffffff")};
+  background: ${({ color }) => (color ? color : theme.white)};
   border-radius: 16px;
 
   padding: 10px 15px;
@@ -100,7 +102,7 @@ export const ActiveItemBottomLabel = styled.div`
   position: absolute;
   bottom: 15px;
   right: 0px;
-  background: ${({ color }) => (color ? color : "#ffffff")};
+  background: ${({ color }) => (color ? color : theme.white)};
   padding: 10px 7px;
   z-index: 1;
   &::before {

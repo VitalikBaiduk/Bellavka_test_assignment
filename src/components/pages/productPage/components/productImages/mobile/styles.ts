@@ -36,7 +36,6 @@ export const SmallVideoWrapper = styled.div`
 export const ActiveVideo = styled.video`
   width: 100%;
   height: auto;
-  max-height: 100%;
   object-fit: cover;
 `;
 
